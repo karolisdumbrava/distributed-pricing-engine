@@ -1,7 +1,7 @@
 package db
 
 import (
-	"distributed-pricing-engine/models"
+	"distributed-pricing-engine/pkg/models"
 	"errors"
 	"database/sql"
 )

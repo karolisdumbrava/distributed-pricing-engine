@@ -1,12 +1,17 @@
-package handlers
+package product
 
 import (
 	"net/http"
 	"encoding/json"
-	"distributed-pricing-engine/db"
+	"distributed-pricing-engine/pkg/db"
 	"strconv"
 	"log"
 )
+
+// Product functions
+
+
+// Price functions
 
 func GetPrice(w http.ResponseWriter, r *http.Request) {
 	productIDStr := r.URL.Query().Get("product_id")
@@ -34,3 +39,4 @@ func GetPrice(w http.ResponseWriter, r *http.Request) {
 	log.Println("Fetching product with ID: ", productID)
 	json.NewEncoder(w).Encode(product)
 }
+

@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
-	"distributed-pricing-engine/db"
-	"distributed-pricing-engine/routes"
+	"distributed-pricing-engine/pkg/db"
+	"distributed-pricing-engine/api/routes"
 )
 
 func main() {
