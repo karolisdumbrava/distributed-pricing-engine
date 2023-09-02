@@ -9,6 +9,8 @@ import (
 
 func InitializePricingRoutes() {
 	http.HandleFunc("/api/price", product.GetPrice)
+	http.HandleFunc("/api/products", product.GetAllProducts)
+	http.HandleFunc("/api/products-prices-by-location", product.GetProductsPricesByLocation)
 }
 
 func InitializeLocationRoutes() {
