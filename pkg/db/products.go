@@ -86,5 +86,6 @@ func GetProductsPricesByLocation(locationID int64) ([]*models.Product, error) {
 		products = append(products, &product)
 	}
 
+
 	return products, nil
 }

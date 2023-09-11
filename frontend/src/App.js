@@ -6,32 +6,21 @@ function App() {
   const [location, setLocation] = useState(null);
   const [products, setProducts] = useState([]);
   console.log(location)
+  console.log("App rendered")
 
   useEffect(() => {
-    const fetchLocation = async () => {
+    const fetchLocationAndProducts = async () => {
       try {
         const location = await getRandomLocation();
         setLocation(location);
-      } catch (error) {
-        console.log(error);
-    }
-  }
-    fetchLocation();
-  }, []);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
         const products = await getProductsPricesByLocation(location.id);
         setProducts(products);
       } catch (error) {
         console.log(error);
       }
     }
-    if(location && location.id){
-      fetchProducts();
-    }
-  }, [location])
+    fetchLocationAndProducts();
+  }, []);
 
   return (
     <div>
@@ -53,7 +42,7 @@ function App() {
             <ul>
               {products.map((product) => (
                 <li key={product.id}>
-                  {product.name} - {product.final_price} {product.currency}
+                  {product.name} - {product.final_price} {location.currency}
                 </li>
               ))}
             </ul>
